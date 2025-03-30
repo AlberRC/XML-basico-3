@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Nombre: Alber Ruiz Clemente
+Curso: DAW1
+Fecha: 30-03-2025
+Ejercicio: Cuentos
+-->
+<!DOCTYPE cuentos [
+    <!ELEMENT cuentos (cuento+)>
+
+    <!ELEMENT cuento (personajes, trama, etiqueta*, precio?)>
+    <!ATTLIST cuento 
+    cod ID #REQUIRED
+    titulo CDATA #REQUIRED
+    genero (infantil|fantasia|terror) #IMPLIED>
+
+    <!ELEMENT personajes (personaje+)>
+    <!ELEMENT personaje (nombre, genero, (descripcionFisica|imagen|url)?)>
+    <!ATTLIST personaje
+    id ID #REQUIRED
+    tipo (principal|secundario|antagonista) "principal"> 
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT genero (M|F|N)>
+    <!ELEMENT descripcionFisica (#PCDATA)> 
+    <!ELEMENT imagen (#PCDATA)>
+    <!ELEMENT url (#PCDATA)>
+
+    <!ELEMENT trama (#PCDATA)>
+    <!ELEMENT etiqueta EMPTY>
+    <!ATTLIST etiqueta
+    nombre CDATA #REQUIRED>
+
+    <!ELEMENT precio (#PCDATA)>
+    <!ATTLIST precio 
+    moneda CDATA "eur">
+]>
+<cuentos>
+    <cuento cod="c001" titulo="El Dragón de Cristal" genero="fantasia">
+        <personajes>
+            <personaje id="p001" tipo="principal">
+                <nombre>Arya</nombre>
+                <genero>F</genero>
+                <descripcionFisica>Joven de 1.70 metros, cabello negro trenzado con hilos de plata, ojos verdes como esmeraldas y una cicatriz en forma de luna en el hombro izquierdo. Viste una armadura ligera de cuero reforzado con runas.</descripcionFisica>
+            </personaje>
+            <personaje id="p002" tipo="antagonista">
+                <nombre>Vermithor</nombre>
+                <genero>N</genero>  
+                <descripcionFisica>Dragón de 20 metros de envergadura, escamas azules iridiscentes que reflejan la luz como cristal, ojos amarillos con pupilas verticales y aliento que emite un vapor helado. Sus alas tienen membranas translúcidas con venas plateadas.</descripcionFisica>
+            </personaje>
+        </personajes>
+        <trama>Arya, una joven guerrera, debe derrotar al dragón Vermithor para salvar su aldea.</trama>
+        <etiqueta nombre="aventura"/>
+        <etiqueta nombre="dragones"/>
+        <precio moneda="eur">12.99</precio>
+    </cuento>
+    <cuento cod="c002" titulo="La Tortuga Valiente" genero="infantil">
+        <personajes>
+            <personaje id="p003" tipo="principal">
+                <nombre>Tito</nombre>
+                <genero>M</genero>
+                <descripcionFisica>Tortuga pequeña de caparazón verde musgo con dibujos en espiral dorados, patas rechonchas llenas de pecas oscuras y ojos grandes y brillantes que expresan curiosidad. Siempre lleva un pañuelo rojo atado al cuello.</descripcionFisica>
+            </personaje>
+            <personaje id="p004" tipo="secundario">
+                <nombre>Luna</nombre>
+                <genero>F</genero>
+                <descripcionFisica>Liebre blanca con orejas rosadas y largas, pelaje suave como algodón y una mancha negra en forma de estrella en la frente. Sus patas traseras son ágiles y siempre están en movimiento.</descripcionFisica>
+            </personaje>
+        </personajes>
+        <trama>Tito, una tortuga tímida, aprende el valor de la amistad con ayuda de Luna, una liebre alegre.</trama>
+        <etiqueta nombre="amistad"/>
+        <etiqueta nombre="animales"/>
+        <precio moneda="usd">9.50</precio>
+    </cuento>
+</cuentos>
